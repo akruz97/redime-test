@@ -7,11 +7,13 @@ interface IFloatButtonPosition {
     right: number;
     bottom: number;
   };
+  onPress: () => void;
 }
 
-const FloatButton = ({ position }: IFloatButtonPosition) => {
+const FloatButton = ({ position, onPress }: IFloatButtonPosition) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[
         styles.container,
         {

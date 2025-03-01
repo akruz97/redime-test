@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   containerItem: {
-    height: 120,
+    height: 90,
     marginTop: 15,
     marginHorizontal: 10,
     padding: 10,
@@ -17,5 +17,11 @@ export const styles = StyleSheet.create({
     shadowRadius: 4.65,
 
     elevation: 8,
+  },
+  inputStyle: {
+    borderWidth: 0.2,
+    borderRadius: 5,
+    marginVertical: 5,
+    paddingHorizontal: 10,
   },
 });

@@ -19,6 +19,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import MainStack from './src/routes';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -71,14 +72,16 @@ function App(): React.JSX.Element {
 
   return (
     <View style={{ flex: 1 }}>
-      <NavigationContainer>
-        <SafeAreaView />
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-        <MainStack />
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <SafeAreaView />
+          <StatusBar
+            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+            backgroundColor={backgroundStyle.backgroundColor}
+          />
+          <MainStack />
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </View>
   );
 }
