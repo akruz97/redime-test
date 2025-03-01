@@ -1,7 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import MaterialScreen from '../pages/Material';
-import CategoryScreen from '../pages/Category/styles';
 import MaterialEditScreen from '../pages/Material/MaterialEdit';
 import MyDrawer from './drawer';
 

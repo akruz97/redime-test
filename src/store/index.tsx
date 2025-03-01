@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import systemReducer from '../reducers/systemReducer';
+
+import materialReducer from './reducers/materialReducer';
+import categoryReducer from './reducers/categoryReducer';
 
 export const store = configureStore({
   reducer: {
-    // system: systemReducer,
+    material: materialReducer,
+    category: categoryReducer,
   },
 });
 

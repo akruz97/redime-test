@@ -1,14 +1,15 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import Label from '../Label';
+import imageBackButton from './../../assets/img/back.png';
 
 const Header = ({ title, onBack, showBackButton = false }) => {
   return (
     <View style={styles.container}>
       {showBackButton && (
         <TouchableOpacity style={styles.backButton} onPress={onBack}>
-          <Text>{'Back'}</Text>
+          <Image source={imageBackButton} style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
       )}
 

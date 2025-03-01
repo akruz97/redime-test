@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     borderRadius: 30 / 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
   },
   containerTitle: {
     marginHorizontal: 10,

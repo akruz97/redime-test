@@ -1,15 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getMaterialList, postMaterial } from '../../services';
+import { getCategoryList, postMaterial } from '../../services';
 
-export const geCategorylListAction = createAsyncThunk(
+export const getCategorylListAction = createAsyncThunk(
   'geCategorylListAction',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await getMaterialList();
+      const response = await getCategoryList();
 
       if (response.data.status) {
-        const data = [];
-        return data;
+        const data = response.data.data;
+        const mapped = [...data].map((x) => ({ key: x.id, value: x.nombre, ...x }));
+
+        return {
+          data: mapped,
+        };
       }
 
       return rejectWithValue({

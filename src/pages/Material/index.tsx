@@ -1,26 +1,32 @@
-import React, { useRef } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import MaterialList from './MaterialList';
 
 import FloatButton from '../../components/FloatButton';
 import { useNavigation } from '@react-navigation/native';
-import Header from '../../components/Header';
+
+import { useDispatch } from 'react-redux';
+
+import { getCategorylListAction } from '../../store/actions/categoryActions';
 
 const MaterialScreen = () => {
   const navigation = useNavigation();
+  const dispatch: any = useDispatch();
   const onPressAddItem = () => {
     navigation.navigate('MaterialEditScreen');
   };
 
+  React.useCallback(() => {
+    dispatch(getCategorylListAction());
+  }, []);
+
   return (
     <View style={{ flex: 1 }}>
-      {/* <Header title={'Materiales'} onBack={() => navigation.goBack()} /> */}
-
       <MaterialList />
       <FloatButton
         position={{
-          right: 12,
-          bottom: 12,
+          right: 15,
+          bottom: 15,
         }}
         onPress={onPressAddItem}
       />

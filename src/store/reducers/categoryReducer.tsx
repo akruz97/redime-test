@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createMaterialAction } from '../actions/materialActions';
+import { getCategorylListAction } from '../actions/categoryActions';
 
 interface CategoryState {
   loading: boolean;
@@ -27,28 +27,26 @@ const categorySlice = createSlice({
   },
   extraReducers(builder) {
     //Customer Rating
-    builder.addCase(createMaterialAction.pending, (state, action) => {
+    builder.addCase(getCategorylListAction.pending, (state, action) => {
       state.loading = true;
     }),
       builder.addCase(
-        createMaterialAction.fulfilled,
-        (state: CategoryState, action: PayloadAction<any>) => {
+        getCategorylListAction.fulfilled,
+        (state: CategoryState, action: PayloadAction) => {
           state.loading = false;
-          state.successCreated = action.payload.successMessage;
-          state.errorCreated = null;
+          state.categoryList = action.payload.data;
         }
       ),
       builder.addCase(
-        createMaterialAction.rejected,
+        getCategorylListAction.rejected,
         (state: CategoryState, action: PayloadAction<any>) => {
           state.loading = false;
-          state.successCreated = null;
-          state.errorCreated = action.payload.errorMessage;
+          state.categoryList = [];
         }
-      ),
-  }
+      );
+  },
 });
 
-export const { resetFlagsRating } = materialSlice.actions;
+export const { resetFlagsRating } = categorySlice.actions;
 
-export default materialSlice.reducer;
+export default categorySlice.reducer;

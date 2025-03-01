@@ -2,7 +2,6 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MaterialScreen from '../pages/Material';
 import CategoryScreen from '../pages/Category/styles';
-import MaterialEditScreen from '../pages/Material/MaterialEdit';
 
 const Drawer = createDrawerNavigator();
 

@@ -20,6 +20,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import MainStack from './src/routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -74,12 +76,14 @@ function App(): React.JSX.Element {
     <View style={{ flex: 1 }}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer>
-          <SafeAreaView />
-          <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            backgroundColor={backgroundStyle.backgroundColor}
-          />
-          <MainStack />
+          <Provider store={store}>
+            <SafeAreaView />
+            <StatusBar
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+              backgroundColor={backgroundStyle.backgroundColor}
+            />
+            <MainStack />
+          </Provider>
         </NavigationContainer>
       </GestureHandlerRootView>
     </View>

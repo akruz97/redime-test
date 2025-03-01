@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Image, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import imgPlus from './../../assets/img/plus.png';
 
 interface IFloatButtonPosition {
   position: {
@@ -22,7 +23,7 @@ const FloatButton = ({ position, onPress }: IFloatButtonPosition) => {
         },
       ]}
     >
-      <Text>{'+'}</Text>
+      <Image source={imgPlus} style={{ width: 25, height: 25 }} />
     </TouchableOpacity>
   );
 };
